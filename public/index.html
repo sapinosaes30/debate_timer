@@ -3,106 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#080d18">
   <title>AP Debate Timer</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <main id="controller" class="controller-view">
     <header class="topbar">
-      <div>
-        <div class="eyebrow">TOURNAMENT TOOLS</div>
-        <h1>Asian Parliamentary <span>Timer</span></h1>
-      </div>
+      <div><div class="eyebrow">TOURNAMENT TOOLS</div><h1>Asian Parliamentary <span>Timer</span></h1></div>
       <div class="room-pill">ROOM <strong id="roomLabel">ROUND1</strong></div>
     </header>
-
-    <section class="connection-row">
-      <span id="connectionDot" class="dot"></span>
-      <span id="connectionText">Connecting…</span>
-      <button id="copyDisplay" class="small-button">Copy TV link</button>
-      <a id="openDisplay" class="small-button link-button" target="_blank" rel="noopener">Open TV display ↗</a>
-    </section>
-
+    <section class="connection-row"><span id="connectionDot" class="dot"></span><span id="connectionText">Connecting…</span><button id="copyDisplay" class="small-button">Copy TV link</button><a id="openDisplay" class="small-button link-button" target="_blank" rel="noopener">Open TV display ↗</a></section>
     <section class="main-grid">
       <div class="panel timer-panel">
-        <div class="timer-meta">
-          <span id="sideBadge" class="side-badge government">GOVERNMENT</span>
-          <span id="phaseLabel" class="phase-label">SUBSTANTIVE SPEECH</span>
-        </div>
-        <div id="speakerName" class="speaker-name">Prime Minister</div>
-        <div id="speakerShort" class="speaker-short">PM</div>
-        <div id="timer" class="timer">06:00</div>
-        <div id="statusText" class="status-text">READY</div>
+        <div class="timer-meta"><span id="sideBadge" class="side-badge government">GOVERNMENT</span><span id="phaseLabel" class="phase-label">SUBSTANTIVE SPEECH</span></div>
+        <div id="speakerName" class="speaker-name">Prime Minister</div><div id="speakerShort" class="speaker-short">PM</div><div id="timer" class="timer">06:00</div><div id="statusText" class="status-text">READY</div>
         <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
-        <div class="timer-actions">
-          <button id="startPause" class="primary-button">▶ Start</button>
-          <button id="reset" class="secondary-button">↺ Reset</button>
-        </div>
-        <div class="step-actions">
-          <button id="previous" class="secondary-button">← Previous speaker</button>
-          <button id="next" class="secondary-button">Next speaker →</button>
-        </div>
+        <div class="timer-actions"><button id="startPause" class="primary-button">▶ Start</button><button id="reset" class="secondary-button">↺ Reset</button></div>
+        <div class="step-actions"><button id="previous" class="secondary-button">← Previous speaker</button><button id="next" class="secondary-button">Next speaker →</button></div>
       </div>
-
       <div class="panel controls-panel">
         <div class="panel-heading"><div><div class="eyebrow">DEBATE SETUP</div><h2>Controls</h2></div></div>
         <label class="field-label" for="preset">Debate format</label>
-        <select id="preset">
-          <option value="standard">Preliminary (standard) — 6 + 3 min</option>
-          <option value="short">Preliminary (short) — 5 + 2 min</option>
-          <option value="semis">Quarterfinals / Semifinals — 7 + 3 min</option>
-          <option value="grand">Grand Final — 7 + 4 min</option>
-          <option value="extended">Extended Grand Final — 8 + 4 min</option>
-          <option value="custom">Custom</option>
-        </select>
-
-        <div class="custom-grid">
-          <div><label class="field-label" for="subMinutes">Substantive (minutes)</label><input id="subMinutes" type="number" min="1" max="30" value="6"></div>
-          <div><label class="field-label" for="replyMinutes">Reply (minutes)</label><input id="replyMinutes" type="number" min="1" max="15" value="3"></div>
-          <div class="full"><label class="field-label" for="graceSeconds">Grace period after double knock (seconds)</label><input id="graceSeconds" type="number" min="0" max="300" value="60"></div>
-        </div>
-        <button id="applyCustom" class="secondary-button full-width">Apply custom durations</button>
-
-        <div class="divider"></div>
-        <label class="field-label" for="speakerSelect">Jump to speaker</label>
-        <select id="speakerSelect"></select>
-
-        <div class="poi-card" id="poiCard">
-          <div><span class="poi-title">POINTS OF INFORMATION</span><small id="poiHelp">Unavailable during protected time</small></div>
-          <strong id="poiState">NOT ALLOWED</strong>
-        </div>
+        <select id="preset"><option value="standard">Preliminary (standard) — 6 + 3 min</option><option value="short">Preliminary (short) — 5 + 2 min</option><option value="semis">Quarterfinals / Semifinals — 7 + 3 min</option><option value="grand">Grand Final — 7 + 4 min</option><option value="extended">Extended Grand Final — 8 + 4 min</option><option value="custom">Custom</option></select>
+        <div class="custom-grid"><div><label class="field-label" for="subMinutes">Substantive (minutes)</label><input id="subMinutes" type="number" min="1" max="30" value="6"></div><div><label class="field-label" for="replyMinutes">Reply (minutes)</label><input id="replyMinutes" type="number" min="1" max="15" value="3"></div><div class="full"><label class="field-label" for="graceSeconds">Grace period after double knock (seconds)</label><input id="graceSeconds" type="number" min="0" max="300" value="60"></div></div>
+        <button id="applyCustom" class="secondary-button full-width">Apply custom durations</button><div class="divider"></div><label class="field-label" for="speakerSelect">Jump to speaker</label><select id="speakerSelect"></select>
+        <div class="poi-card" id="poiCard"><div><span class="poi-title">POINTS OF INFORMATION</span><small id="poiHelp">Unavailable during protected time</small></div><strong id="poiState">NOT ALLOWED</strong></div>
         <button id="poiOverride" class="secondary-button full-width">Manually disable POIs</button>
-
-        <div class="sound-row">
-          <div><strong>Audio signals</strong><small>Play marker sounds on this device</small></div>
-          <label class="switch"><input id="soundToggle" type="checkbox" checked><span></span></label>
-        </div>
+        <div class="sound-row"><div><strong>Audio signals</strong><small>Play marker sounds on this device</small></div><label class="switch"><input id="soundToggle" type="checkbox" checked><span></span></label></div>
       </div>
     </section>
-
-    <section class="panel order-panel">
-      <div class="panel-heading"><div><div class="eyebrow">SPEAKER SEQUENCE</div><h2>Debate order</h2></div><span class="muted">6 substantive · 2 reply</span></div>
-      <div id="speakerList" class="speaker-list"></div>
-    </section>
+    <section class="panel order-panel"><div class="panel-heading"><div><div class="eyebrow">SPEAKER SEQUENCE</div><h2>Debate order</h2></div><span class="muted">6 substantive · 2 reply</span></div><div id="speakerList" class="speaker-list"></div></section>
     <footer>Keep this controller open on your laptop. Open the TV display link on the projector device using the same room code.</footer>
   </main>
 
   <main id="display" class="display-view hidden">
-    <div class="display-top"><span>ASIAN PARLIAMENTARY DEBATE</span><span id="displayRoom">ROOM ROUND1</span></div>
-    <div class="display-center">
-      <div id="displaySide" class="display-side government">GOVERNMENT</div>
+    <header class="tv-header"><div class="tv-brand"><span class="brand-mark">AP</span><span>ASIAN PARLIAMENTARY<br><b>DEBATE TIMER</b></span></div><div class="tv-room" id="displayRoom">ROOM ROUND1</div></header>
+    <section class="tv-main">
+      <div class="tv-meta"><span id="displaySide" class="display-side government">GOVERNMENT</span><span id="displayPhase" class="display-phase">SUBSTANTIVE SPEECH</span></div>
       <div id="displaySpeaker" class="display-speaker">Prime Minister</div>
-      <div id="displayPhase" class="display-phase">SUBSTANTIVE SPEECH</div>
+      <div class="tv-clock-label">TIME REMAINING</div>
       <div id="displayTimer" class="display-timer">06:00</div>
-      <div id="displayStatus" class="display-status">READY</div>
-      <div class="display-progress"><div id="displayProgress"></div></div>
-      <div id="displayPoi" class="display-poi">POIs NOT ALLOWED</div>
-    </div>
-    <div class="display-bottom"><span>GOVERNMENT <i class="legend-blue"></i></span><span>OPPOSITION <i class="legend-red"></i></span></div>
+      <div id="displayStatus" class="display-status">READY TO BEGIN</div>
+      <div class="tv-progress-wrap"><div class="tv-progress-caption"><span id="progressLabel">SPEECH TIME</span><span id="progressPercent">0%</span></div><div class="display-progress"><div id="displayProgress"></div></div><div class="tv-progress-scale"><span>START</span><span id="progressEndLabel">ALLOTTED TIME</span></div></div>
+      <div id="displayPoiCard" class="display-poi-card closed"><div class="poi-light"></div><div class="poi-copy"><span class="poi-kicker">POINTS OF INFORMATION</span><strong id="displayPoi">POIs CLOSED</strong><small id="displayPoiDetail">Protected time · first and final minute</small></div><div id="displayPoiWindow" class="poi-window">FIRST / FINAL MINUTE<br>PROTECTED</div></div>
+    </section>
+    <footer class="tv-footer"><div id="speakerSequence" class="tv-sequence"></div><div class="tv-legend"><span><i class="legend-blue"></i> GOVERNMENT</span><span><i class="legend-red"></i> OPPOSITION</span></div></footer>
   </main>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/client.js"></script>
+  <script src="/socket.io/socket.io.js"></script><script src="/client.js"></script>
 </body>
 </html>
