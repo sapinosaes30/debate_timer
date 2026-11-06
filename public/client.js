@@ -1,3 +1,4 @@
+
 (() => {
   const params = new URLSearchParams(location.search);
   const room = (params.get("room") || "ROUND1").trim().replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 32) || "ROUND1";
@@ -69,8 +70,6 @@
     $("soundToggle").addEventListener("change", e => {
       soundEnabled = e.target.checked;
     });
-
-    buildSpeakerControls();
   }
 
   function command(action, extra = {}) {
@@ -111,6 +110,9 @@
       });
     });
   }
+
+  // FIX: Build controls only after speakerData and the function are defined.
+  if (!isDisplay) buildSpeakerControls();
 
   function buildTvSequence(index) {
     const names = [
