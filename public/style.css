@@ -854,3 +854,12 @@ footer {
     gap: 5px;
   }
 }
+.tv-credit {
+  text-align: center;
+  color: #64748b;
+  font-size: clamp(9px, 0.65vw, 11px);
+  letter-spacing: 0.8px;
+  opacity: 0.8;
+  padding-top: 2px;
+  font-weight: 500;
+}
